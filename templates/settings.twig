@@ -1,0 +1,33 @@
+{% extends '_layouts/cp' %}
+{% import "_includes/forms" as forms %}
+
+{% set title = 'SVGi Settings' %}
+
+{% set content %}
+
+  <form method="post" accept-charset="UTF-8" data-saveshortcut>
+    <input type="hidden" name="action" value="plugins/savePluginSettings">
+    <input type="hidden" name="pluginClass" value="svgi">
+    {{ getCsrfInput() }}
+
+    {% namespace 'settings' %}
+      
+      {{
+        forms.textField({
+          label: "SVG Directory",
+          id: "svgDirectory",
+          name: "svgDirectory",
+          placeholder: '/../frontend/svgs/',
+          instructions: "The default directory where the SVGs you wish to inline will live. This is relative to the public directory. Alternatively, you can pass a path parameter on the template variable for another location for a specific SVG.",
+          value: settings.svgDirectory
+        })
+      }}
+      {#value: settings["svgDirectory"]#}
+    
+    {% endnamespace %}
+
+    <button type="submit" class="btn submit">Save</button>
+
+  </form>
+
+{% endset %}
