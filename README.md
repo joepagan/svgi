@@ -40,5 +40,3 @@ A 2nd param can be passed for a specific path for an individual svg. This path i
 A 3rd param (boolean) can be passed if you wish for the plugin to delete the first line of the file, sometimes SVGs can add an xml line which is not required.
 
 `{{ craft.svgi.inject('file', '/resources/images/icons/file.svg', true) }}`
-
-Brought to you by [Joe Pagan](www.joe-pagan.com)
